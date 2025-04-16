@@ -1,0 +1,579 @@
+/* ========== 1. Reset & Base ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Old Mincho', serif;
+  background: #f8f8f8;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* ========== 2. Now Loading ========== */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #ffd6eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+#loading.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 2rem;
+  color: #e61e84;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.loading-bar {
+  width: 300px;
+  height: 10px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loading-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #e61e84, #ff99cc);
+  animation: progressBar 3s forwards;
+}
+
+@keyframes progressBar {
+  to {
+    width: 100%;
+  }
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#fff 2px, transparent 2px);
+  background-size: 30px 30px;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: starTwinkle 1.5s infinite alternate;
+}
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* ========== 3. Header ========== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #e61e84;
+}
+
+/* ========== 4. Main Visual ========== */
+.main-visual {
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.visual-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.slideshow-wrapper {
+  width: 600px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  background: #000;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* ロゴと紹介文 */
+.main-copy {
+  max-width: 480px;
+  color: #e61e84;
+  text-align: left;
+}
+
+.svg-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.main-logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  animation: fadeInUp 1s ease;
+}
+
+.main-logo-sub {
+  font-size: 1rem;
+  color: #b4246c;
+  margin-top: 0.3rem;
+  animation: fadeInUp 1.2s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========== 5. セクション共通 ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== 6. 紹介・ニュース ========== */
+.introduction, .news {
+  background: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section-title h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.section-title p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.news-list {
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.news-list li {
+  background-color: #ffeb00;
+  color: #222;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.news-list li:hover {
+  background-color: #ff70b4;
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.news-list .date {
+  color: #999;
+  margin-right: 1rem;
+  min-width: 90px;
+}
+
+.news-list a {
+  color: #333;
+  text-decoration: none;
+}
+
+
+/* ========== 7. フッター ========== */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+}
+
+/* ========== 8. 背景幾何図形 ========== */
+.floating-shapes {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.6;
+  animation-name: float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+.banner-section {
+  padding: 40px 20px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.banner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.banner-grid a {
+  display: block;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.banner-grid a:hover {
+  transform: scale(1.05);
+}
+
+.banner-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.streaming-banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+
+.streaming-banner {
+  width: 600px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 30px;
+}
+
+.youtube-banner-inner img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  background: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.youtube-banner-inner img:hover {
+  transform: scale(1.02);
+}
+
+/* ========== YouTubeリンクセクション ========== */
+.youtube-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(100, 100, 255, 0.1);
+  padding: 80px 20px;
+  position: relative;
+  text-align: center;
+}
+
+.youtube-box {
+  background-color: rgba(180, 180, 255, 0.3);
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  max-width: 600px;
+  width: 100%;
+}
+
+.youtube-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #e61e84;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.youtube-sub {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.youtube-link {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e61e84;
+  padding: 10px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+
+.youtube-link:hover {
+  background-color: #c2166b;
+}
+
+/* === 出現アニメーション（フェード＋スライドアップ） === */
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-left,
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-right {
+  transform: translateX(50px);
+}
+
+.fade-in-left {
+  transform: translateX(-50px);
+}
+
+.fade-in-left.visible,
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === テキストをタイピング風に出す === */
+.typing-link {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #e61e84;
+  font-family: 'Zen Old Mincho', serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.typing-text span {
+  opacity: 0;
+  display: inline-block;
+  animation: typingFade 0.05s ease forwards;
+}
+
+@keyframes typingFade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* YouTubeセクションスタイル */
+.youtube-call-to-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0;
+  padding: 20px;
+}
+
+.floating-menu-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.floating-menu-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: floatPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes floatPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+.x-section {
+  background-color: #b2e3ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.x-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.x-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #002c80;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  font-family: 'Zen Old Mincho', sans-serif;
+}
+
+.x-title span {
+  color: #1da1f2;
+}
+
+.x-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+}
+
+

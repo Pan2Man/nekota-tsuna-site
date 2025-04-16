@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>猫汰つな 特設ページ</title>
+
+  <!-- スタイル -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* NEWSセクション用アニメーション */
+    .news-section {
+      background-color: #b2e3ff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .news-section h2 {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: #002;
+      margin-bottom: 2rem;
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .news-list li {
+      background-color: #ffeb00;
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      transition: background-color 0.4s ease, transform 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .news-list li:hover {
+      background-color: #ff70b4;
+      transform: translateY(-4px);
+    }
+
+    .news-list .date {
+      background: #f25ca2;
+      color: #fff;
+      padding: 0.3em 0.8em;
+      font-weight: bold;
+      border-radius: 5px;
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .floating-menu-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 100px;
+      height: 100px;
+      z-index: 999;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .floating-menu-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: floatPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body class="no-scroll">
+
+  <!-- ✅ ローディング -->
+  <div id="loading">
+    <div class="loading-content">
+      <p class="loading-text">Now Loading...</p>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+    <div class="stars"></div>
+  </div>
+
+  <!-- ✅ 背景図形 -->
+  <div class="floating-shapes"></div>
+
+  <!-- ✅ メインビジュアル -->
+  <section class="main-visual">
+    <div class="visual-container">
+      <div class="slideshow-wrapper">
+        <div class="slideshow-container">
+          <img src="images/slide1.png" class="slide active" alt="スライド1">
+          <img src="images/slide2.png" class="slide" alt="スライド2">
+          <img src="images/slide3.png" class="slide" alt="スライド3">
+          <img src="images/slide4.png" class="slide" alt="スライド4">
+        </div>
+      </div>
+
+      <div class="main-copy scroll-fade">
+        <svg class="svg-logo" width="360" height="80" viewBox="0 0 360 80" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="60" font-family="'Zen Old Mincho', serif" font-size="56" fill="#e61e84">猫汰つな</text>
+        </svg>
+        <h1 class="main-logo-text">TSUNA NEKOTA</h1>
+        <p class="main-logo-sub">天真爛漫な実況ガール</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ YouTubeバナー -->
+  <section class="youtube-banner">
+    <div class="youtube-banner-inner">
+      <img src="images/youtube-banner.png" alt="YouTubeにて配信中！" width="600" height="100" />
+    </div>
+  </section>
+
+  <!-- ✅ バナー -->
+  <section class="banner-section">
+    <h2 class="section-title">関連コンテンツ</h2>
+    <div class="banner-grid">
+      <a href="#"><img src="images/banner1.png" alt="なんでも相談室"></a>
+      <a href="#"><img src="images/banner2.png" alt="神エイムの謎に迫る"></a>
+      <a href="#"><img src="images/banner3.png" alt="60万人記念メッセージボード"></a>
+      <a href="#"><img src="images/banner4.png" alt="イベント情報"></a>
+    </div>
+  </section>
+
+  <!-- ✅ NEWSセクション -->
+  <section class="news-section fade-slide-up">
+    <h2>NEWS</h2>
+    <ul class="news-list">
+      <li class="fade-in-left">
+        <span class="date">2025.04.06</span>
+        アニメ「負けヒロインが多すぎる！」2期制作決定！
+      </li>
+      <li class="fade-in-right">
+        <span class="date">2025.03.27</span>
+        スペシャルイベントにおける皆様からの祝花・プレゼントに関して
+      </li>
+      <li class="fade-in-left">
+        <span class="date">2025.03.25</span>
+        「負けヒロインが多すぎる！」ツワブキ高校文芸部課外活動 電子チケットリセールのお知らせ
+      </li>
+    </ul> 
+  </section>
+  
+  <!-- ✅ 猫汰つな公式 X 埋め込み -->
+  <section class="x-section fade-slide-up">
+    <div class="x-inner">
+      <h2 class="x-title">OFFICIAL <span>X</span></h2>
+      <div class="x-box">
+        <a class="twitter-timeline"
+           data-width="400"
+           data-height="600"
+           data-theme="light"
+           href="https://x.com/tsuna_nekota?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+           Tweets by tsuna_nekota
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ✅ X (旧Twitter) 埋め込みスクリプト -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+  <!-- ✅ YouTube埋め込み -->
+  <section class="youtube-call-to-action fade-slide-up">
+    <div class="youtube-inner" style="width: 100%; display: flex; justify-content: center;">
+      <iframe 
+        width="800" 
+        height="450" 
+        src="https://www.youtube.com/embed/live_stream?channel=UCaxGwlW8xF1N4DPXpCof_0w&autoplay=1&mute=1" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ✅ フッター -->
+  <footer>
+    <p>&copy; 2025 猫汰つなファンコミュニティ All Rights Reserved.</p>
+  </footer>
+
+  <!-- ✅ 右下メニューボタン -->
+  <div class="floating-menu-button" onclick="openMenu()">
+    <img src="images/menu-witch.png" alt="メニュー" />
+  </div>
+
+  <!-- ✅ スクリプト -->
+  <script src="script.js"></script>
+  <script>
+    function openMenu() {
+      alert("ここにメニュー表示処理を追加できます！");
+    }
+  </script>
+</body>
+</html>
